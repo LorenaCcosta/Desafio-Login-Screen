@@ -8,17 +8,17 @@ export default function LoginScreen( {navigation} ){
         <View style={styles.container}>
             <Image style={styles.casual_dog} source={require('../../assets/casual_dog.png')}/>
 
-            <Text style={styles.text1}>Ótimo dia!</Text>
+            <Text style={styles.title}>Ótimo dia!</Text>
 
-            <Text style={styles.text2}>Como deseja acessar?</Text>
+            <Text style={styles.subTitle}>Como deseja acessar?</Text>
 
-            <TouchableOpacity style={styles.button_green} onPress={() => navigation.navigate('')}>
+            <TouchableOpacity style={styles.btn_green} onPress={() => navigation.navigate('Acessar')}>
                 <Image style={styles.google_logo} source={require('../../assets/Google.png')}/>
-                <Text style={styles.text_button1}>Como deseja acessar?</Text>
+                <Text style={styles.text_btn1}>Como deseja acessar?</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button_white} onPress={() => navigation.navigate('')}>
-                <Text style={styles.text_button2}>Outras opções</Text>
+            <TouchableOpacity style={styles.btn_white} onPress={() => navigation.navigate('Acessar')}>
+                <Text style={styles.text_btn2}>Outras opções</Text>
             </TouchableOpacity>
         </View>
     );
@@ -38,7 +38,7 @@ const styles =  StyleSheet.create({
         marginBottom: 38,
     },
 
-    button_green: {
+    btn_green: {
         width: windowWidth * 0.9,
         flexDirection: 'row',
         backgroundColor: '#14C871',
@@ -49,7 +49,7 @@ const styles =  StyleSheet.create({
         marginBottom: 14,
     },
 
-    button_white: {
+    btn_white: {
         borderColor: '#14C871',
         borderWidth: 1,
         borderRadius: 8,
@@ -66,20 +66,20 @@ const styles =  StyleSheet.create({
         borderRadius: 4,
     },
 
-    text1: {
+    title: {
         color: '#31404D',
         fontSize: 40,
         fontWeight: 600,
         marginBottom: 8,
     },
-    text2: {
+    subTitle: {
         color: '#31404D',
         fontSize: 14,
         fontWeight: 800,
         marginBottom: 46,
     },
 
-    text_button1: {
+    text_btn1: {
         fontWeight: 500,
         color: '#fff',
         fontSize: 14,
@@ -89,7 +89,7 @@ const styles =  StyleSheet.create({
         
     },
 
-    text_button2: {
+    text_btn2: {
         color: '#31404D',
         fontWeight: 500,
         fontSize: 14,
