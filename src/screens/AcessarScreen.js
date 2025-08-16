@@ -1,6 +1,8 @@
 import React from "react";
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, Dimensions } from "react-native";
-import { Ionicons } from '@expo/vector-icons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+// import { Ionicons } from '@expo/vector-icons';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -8,27 +10,31 @@ export default function AcessarScreen( {navigation} ){
     return(
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} >
-                <Image style={styles.SetaVoltar} source={require('../../assets/SetaVoltar.png')} />
+                <Image style={styles.setaVoltar} source={require('../../assets/SetaVoltar.png')} />
             </TouchableOpacity>
             <Text style={styles.title}>Acesse</Text>
             <Text style={styles.subTitle}>Com E-mail e senha</Text>
 
             <Text style={styles.textEmail}>E-mail</Text>
-            <TextInput style={styles.InputEmail} placeholder="Digite seu E-mail" />
+            <TextInput style={styles.inputEmail} placeholder="Digite seu E-mail" />
 
             <Text style={styles.textSenha}>Senha</Text>
-            <View style={styles.container_Input}>
-                <TextInput style={styles.InputSenha} placeholder="Digite sua senha"/>
-                <Ionicons name="eye-outline" size={20} />
+
+            <TextInput style={styles.inputSenha} placeholder="Digite sua senha"/>
+            <TouchableOpacity style={styles.iconEye}>
+                <Icon name={'visibility'} size={24}/>
+
+            </TouchableOpacity>
+            <View style={styles.container2}>
+                <TouchableOpacity style={styles.btn_checkbox}>
+
+            </TouchableOpacity>
+                <Text style={styles.textLembrarSenha}>Lembrar senha</Text>
+
+                <Text style={styles.textEsqueciSenha}>Esqueci minha senha</Text>
             </View>
 
-            <TouchableOpacity style={styles.btn_checkbox}>
-            </TouchableOpacity>
-
-            <Text style={styles.textLembrarSenha}>Lembrar senha</Text>
-
-            <Text style={styles.textEsqueciSenha}>Esqueci minha senha</Text>
-
+            <View style={styles.containerBtn}>
             <TouchableOpacity style={styles.btn_green} onPress={() => navigation.navigate('')}>
                 <Text style={styles.text_btn1}>Acessar</Text>
             </TouchableOpacity>
@@ -36,37 +42,13 @@ export default function AcessarScreen( {navigation} ){
             <TouchableOpacity style={styles.btn_white} onPress={() => navigation.navigate('')}>
                 <Text style={styles.text_btn2}>Cadastrar</Text>
             </TouchableOpacity>
+            </View>
 
             <Text style={styles.textContinue}>Ou continue com</Text>
 
             <Image style={styles.google_logo} source={require('../../assets/Google.png')}/>
 
             <Image style={styles.facebook_logo} source={require('../../assets/Facebook.png')}/>
-            
-
-
-
-
-
-
-
-
-
-
-            {/* <Image style={styles.casual_dog} source={require('../../assets/casual_dog.png')}/>
-
-            <Text style={styles.text1}>Ótimo dia!</Text>
-
-            <Text style={styles.text2}>Como deseja acessar?</Text>
-
-            <TouchableOpacity style={styles.button_green} onPress={() => navigation.navigate('')}>
-                <Image style={styles.google_logo} source={require('../../assets/Google.png')}/>
-                <Text style={styles.text_button1}>Como deseja acessar?</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.button_white} onPress={() => navigation.navigate('')}>
-                <Text style={styles.text_button2}>Outras opções</Text>
-            </TouchableOpacity> */}
         </View>
     );
 }
@@ -79,6 +61,19 @@ const styles =  StyleSheet.create({
         marginTop: 14,
     },
 
+    container2: {
+        flexDirection: 'row',
+        marginBottom: 24,
+    },
+
+    btn_checkbox:{
+        height: 22,
+        width: 22,
+        borderColor: '#14C871',
+        borderWidth: 1, 
+        borderRadius: 4,
+    },
+
     container_Input: {
         flexDirection: 'row', 
     },
@@ -89,7 +84,7 @@ const styles =  StyleSheet.create({
         fontWeight: 600,
     },
 
-    SetaVoltar: {
+    setaVoltar: {
         height: 24,
         width: 24,
         marginBottom: 12,
@@ -105,7 +100,7 @@ const styles =  StyleSheet.create({
         fontSize: 12,
     },
 
-    InputEmail: {
+    inputEmail: {
         height: 68,
         backgroundColor: '#E3E7F3',
         borderRadius: 4,
@@ -114,17 +109,54 @@ const styles =  StyleSheet.create({
         
     },
 
-    InputSenha: {
+    inputSenha: {
         height: 68,
         backgroundColor: '#E3E7F3',
         borderRadius: 4,
         marginBottom: 16,
         paddingLeft: 10,
-        
+        marginBottom: 26,
     },
 
     textSenha: {
         fontWeight: 500,
         fontSize: 12,
     },
+
+    iconEye: {
+        position: "absolute",
+        top: '36%',
+        right: 18,
+    },
+
+    textLembrarSenha: {
+        marginLeft: 8,
+    },
+    textEsqueciSenha: {
+        marginLeft: '24%',
+    },
+
+    btn_green: {
+        backgroundColor: '#14C871',
+        height: 68,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 8,
+    },
+
+    containerBtn: {
+        flexDirection: 'row',
+        gap: 18,
+
+    },
+
+    btn_white: {
+        height: 68,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 8,
+        borderColor: '#14C871',
+        borderWidth: 1,
+        
+    }
 })
