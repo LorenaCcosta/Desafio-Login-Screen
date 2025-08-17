@@ -132,7 +132,7 @@ const styles =  StyleSheet.create({
 
     iconEye: {
         position: "absolute",
-        top: '35%',
+        top: '36%',
         right: 18,
     },
 
